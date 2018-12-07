@@ -25,44 +25,44 @@ import java.util.ArrayList;
  **/
 public class AsunaPerformanceAnalyser {
 
-    private ArrayList<Integer> performanceTimesNormal;
-    private ArrayList<Integer> performanceTimesRender;
+    private ArrayList<Long> performanceTimesNormal;
+    private ArrayList<Long> performanceTimesRender;
 
     public AsunaPerformanceAnalyser() {
         performanceTimesNormal = new ArrayList<>();
         performanceTimesRender = new ArrayList<>();
     }
 
-    public void recordNewNormalTime(int totalTime) {
+    public void recordNewNormalTime(long totalTime) {
         performanceTimesNormal.add(totalTime);
     }
 
-    public void recordNewRenderTime(int totalTime) {
+    public void recordNewRenderTime(long totalTime) {
         performanceTimesRender.add(totalTime);
     }
 
-    public int getCurrentMsNormal() {
-        return performanceTimesNormal.get(performanceTimesNormal.size() - 1);
+    public long getCurrentMsNormal() {
+        return (long) (performanceTimesNormal.get(performanceTimesNormal.size() - 1) / 1e+6);
     }
 
     public double getAvgMsNormal() {
         int sum = 0;
-        for (int i : performanceTimesNormal) {
+        for (long i : performanceTimesNormal) {
             sum += i;
         }
-        return (double) sum / performanceTimesNormal.size();
+        return (double) (sum / performanceTimesNormal.size()) / 1e+6;
     }
 
-    public int getCurrentMsRender() {
-        return performanceTimesRender.get(performanceTimesRender.size() - 1);
+    public long getCurrentMsRender() {
+        return (long) (performanceTimesRender.get(performanceTimesRender.size() - 1) / 1e+6);
     }
 
     public double getAvgMsRender() {
         int sum = 0;
-        for (int i : performanceTimesRender) {
+        for (long i : performanceTimesRender) {
             sum += i;
         }
-        return (double) sum / performanceTimesRender.size();
+        return (double) (sum / performanceTimesRender.size()) / 1e+6;
     }
 
 }

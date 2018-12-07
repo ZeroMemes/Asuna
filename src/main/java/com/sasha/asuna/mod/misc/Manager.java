@@ -74,7 +74,7 @@ public class Manager {
          * If a feature is togglable, it will only tick if it's enabled.
          */
         public static void tickFeatures() {
-            long l = System.currentTimeMillis();
+            long l = System.nanoTime();
             PathCommand.tick();
             featureRegistry
                     .stream()
@@ -89,11 +89,11 @@ public class Manager {
                         }
                         feature.onTick();
                     });
-            AsunaMod.PERFORMANCE_ANAL.recordNewNormalTime((int) (System.currentTimeMillis() - l));
+            AsunaMod.PERFORMANCE_ANAL.recordNewNormalTime(System.nanoTime() - l);
         }
 
         public static void renderFeatures() {
-            long l = System.currentTimeMillis();
+            long l = System.nanoTime();
             featureRegistry
                     .stream()
                     .filter(IAsunaRenderableFeature.class::isInstance)
@@ -107,7 +107,7 @@ public class Manager {
                         }
                         feature.onRender();
                     });
-            AsunaMod.PERFORMANCE_ANAL.recordNewRenderTime((int) (System.currentTimeMillis() - l));
+            AsunaMod.PERFORMANCE_ANAL.recordNewRenderTime(System.nanoTime() - l);
         }
 
         public static String getFeatureInfo(Class<? extends IAsunaFeature> featureClass) {
