@@ -24,7 +24,6 @@ import com.sasha.asuna.mod.events.client.ClientPushOutOfBlocksEvent;
 import com.sasha.asuna.mod.events.client.EntityMoveEvent;
 import com.sasha.asuna.mod.events.playerclient.PlayerKnockbackEvent;
 import com.sasha.asuna.mod.feature.impl.FreecamFeature;
-import com.sasha.asuna.mod.feature.impl.SafewalkFeature;
 import com.sasha.asuna.mod.misc.Manager;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -94,9 +93,6 @@ public abstract class MixinEntity {
             cancellable = true
     )
     private void preSetVelocity(double x, double y, double z, CallbackInfo ci) {
-        // >mixin doesn't allow this == mc.player
-        // (thinking)
-        // mfw
         if ((Entity)(Object) this instanceof EntityPlayerSP) {
             PlayerKnockbackEvent event = new PlayerKnockbackEvent(x, y, z);
             AsunaMod.EVENT_MANAGER.invokeEvent(event);
@@ -106,25 +102,4 @@ public abstract class MixinEntity {
         }
     }
 
-    /**
-     * Makes safewalk work (thanks brady)
-     *
-     * @param self ze entity
-     */
-    @Redirect(
-            method = "move",
-            at = @At(
-                    value = "INVOKE",
-                    target = "net/minecraft/entity/Entity.isSneaking()Z",
-                    ordinal = 0
-            )
-    )
-    private boolean isSneaking(Entity self) {
-        if (self instanceof EntityPlayerSP) { // dont make other players(?) safewalk cuz they cant
-            // im not sure if entityPlayermp counts as a player movertype
-            return self.isSneaking() || Manager.Feature.isFeatureEnabled(SafewalkFeature.class);
-        } else {
-            return self.isSneaking();
-        }
-    }
 }

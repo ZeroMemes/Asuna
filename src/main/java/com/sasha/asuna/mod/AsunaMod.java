@@ -331,7 +331,7 @@ public class AsunaMod implements SimpleListener {
         Manager.Feature.registerFeature(new BoatFlyFeature());
         Manager.Feature.registerFeature(new AutoReconnectFeature());
         Manager.Feature.registerFeature(new NameProtectFeature());
-        Manager.Feature.registerFeature(new SafewalkFeature());
+        //Manager.Feature.registerFeature(new SafewalkFeature());
         Manager.Feature.registerFeature(new PortalGodModeFeature());
         Manager.Feature.registerFeature(new AutoEatFeature());
         Manager.Feature.registerFeature(new ShulkerSpyFeature());
