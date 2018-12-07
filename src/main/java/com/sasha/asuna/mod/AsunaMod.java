@@ -80,9 +80,9 @@ import static com.sasha.asuna.mod.misc.Manager.Renderable.renderableRegistry;
 public class AsunaMod implements SimpleListener {
 
     public static final String MODID = "asunaforge";
-    public static final String NAME = "Asuna";
+    public static final String NAME = "Asuna Lite";
     public static final String JAP_NAME = "\u30A2\u30B9\u30CA";
-    public static final String VERSION = "2.0.1";
+    public static final String VERSION = "2.0.1L";
     public static SimpleEventManager EVENT_MANAGER = new SimpleEventManager();
     @Deprecated public static AsunaDataManager DATA_MANAGER = new AsunaDataManager();
     public static SettingHandler SETTING_HANDLER = new SettingHandler("AsunaSettingData");
@@ -110,7 +110,7 @@ public class AsunaMod implements SimpleListener {
     public static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
     public static AsunaHUD asunaHUD;
     public static Minecraft minecraft = Minecraft.getMinecraft();
-    private static Logger logger = LogManager.getLogger("Asuna " + VERSION);
+    private static Logger logger = LogManager.getLogger("Asuna Lite " + VERSION);
 
     /**
      * Buttons

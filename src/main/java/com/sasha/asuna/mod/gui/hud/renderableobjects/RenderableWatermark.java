@@ -35,22 +35,26 @@ public class RenderableWatermark extends RenderableObject {
 
     @Override
     public void renderObjectLT(int yyy) {
-        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow("\247" + "b" + AsunaMod.NAME + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
+        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow(getAsunaName() + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
     }
 
     @Override
     public void renderObjectLB(int yyy) {
-        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow("\247" + "b" + AsunaMod.NAME + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
+        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow(getAsunaName() + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
     }
 
     @Override
     public void renderObjectRT(int yyy) {
-        String s = "\247" + "b" + AsunaMod.NAME + " \247" + "7" + AsunaMod.VERSION;
+        String s = getAsunaName() + " \247" + "7" + AsunaMod.VERSION;
         AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow(s, (AsunaHUD.sWidth - AsunaMod.FONT_MANAGER.segoe_36.getStringWidth(s) - 2), yyy, 0xffffff);
     }
 
     @Override
     public void renderObjectRB(int yyy) {
-        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow("\247" + "b" + AsunaMod.NAME + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
+        AsunaMod.FONT_MANAGER.segoe_36.drawStringWithShadow(getAsunaName() + " \247" + "7" + AsunaMod.VERSION, 4, yyy, 0xffffff);
+    }
+
+    private String getAsunaName() {
+        return "\247bAsuna \2477Lite";
     }
 }
