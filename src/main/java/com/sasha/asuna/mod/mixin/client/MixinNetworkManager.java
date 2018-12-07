@@ -24,11 +24,9 @@ import com.sasha.asuna.mod.events.client.ClientPacketSendEvent;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
-import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -40,9 +38,6 @@ import javax.annotation.Nullable;
  **/
 @Mixin(value = NetworkManager.class, priority = 999)
 public abstract class MixinNetworkManager {
-
-
-    @Shadow public INetHandler packetListener;
 
     @Inject(method = "dispatchPacket", at = @At("HEAD"), cancellable = true)
     public void dispatchPacket(final Packet<?> inPacket, @Nullable final GenericFutureListener<? extends Future<? super Void>>[] futureListeners, CallbackInfo info) {
