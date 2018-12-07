@@ -83,8 +83,6 @@ public abstract class MixinNetworkManager {
         AsunaMod.EVENT_MANAGER.invokeEvent(event);
         if (event.isCancelled()) {
             info.cancel();
-            return;
         }
-        ((Packet<INetHandler>) packet).processPacket(this.packetListener);
     }
 }
