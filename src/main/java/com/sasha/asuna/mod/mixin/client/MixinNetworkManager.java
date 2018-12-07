@@ -21,6 +21,7 @@ package com.sasha.asuna.mod.mixin.client;
 import com.sasha.asuna.mod.AsunaMod;
 import com.sasha.asuna.mod.events.client.ClientPacketRecieveEvent;
 import com.sasha.asuna.mod.events.client.ClientPacketSendEvent;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 import net.minecraft.network.INetHandler;
@@ -42,8 +43,8 @@ import javax.annotation.Nullable;
 @Mixin(value = NetworkManager.class, priority = 999)
 public abstract class MixinNetworkManager {
 
-    @Shadow
-    protected abstract void dispatchPacket(Packet<?> inPacket, @Nullable GenericFutureListener<? extends Future<? super Void>>[] futureListeners);
+
+    @Shadow public INetHandler packetListener;
 
     @Inject(method = "dispatchPacket", at = @At("HEAD"), cancellable = true)
     public void dispatchPacket(final Packet<?> inPacket, @Nullable final GenericFutureListener<? extends Future<? super Void>>[] futureListeners, CallbackInfo info) {
@@ -70,19 +71,20 @@ public abstract class MixinNetworkManager {
         this.dispatchPacket(event.getSendPacket(), futureListeners);
     }
 */
-    @Redirect(
+    @Inject(
             method = "channelRead0",
             at = @At(
-                    value = "INVOKE",
-                    target = "net/minecraft/network/Packet.processPacket(Lnet/minecraft/network/INetHandler;)V"
-            )
+                    value = "HEAD"
+            ),
+            cancellable = true
     )
-    private void onProcessPacket(Packet<?> packet, INetHandler netHandler) {
+    private void channelRead0(ChannelHandlerContext p_channelRead0_1_, Packet<?> packet, CallbackInfo info) {
         ClientPacketRecieveEvent event = new ClientPacketRecieveEvent(packet);
         AsunaMod.EVENT_MANAGER.invokeEvent(event);
         if (event.isCancelled()) {
+            info.cancel();
             return;
         }
-        ((Packet<INetHandler>) packet).processPacket(netHandler);
+        ((Packet<INetHandler>) packet).processPacket(this.packetListener);
     }
 }
