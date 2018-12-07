@@ -85,7 +85,7 @@ public class AsunaMod implements SimpleListener {
     public static final String VERSION = "2.0.1L";
     public static SimpleEventManager EVENT_MANAGER = new SimpleEventManager();
     @Deprecated public static AsunaDataManager DATA_MANAGER = new AsunaDataManager();
-    public static SettingHandler SETTING_HANDLER = new SettingHandler("AsunaSettingData");
+    public static SettingHandler SETTING_HANDLER = new SettingHandler("AsunaLiteSettingData");
     /**
      * desktop notifications
      */
@@ -132,7 +132,7 @@ public class AsunaMod implements SimpleListener {
         }));
         try {
             if (Util.getOSType() == Util.EnumOS.WINDOWS) {
-                BATTERY_MANAGER_INTERFACE = (AsunaWindowsBatteryManager) Native.loadLibrary("Kernel32", AsunaWindowsBatteryManager.class);
+                BATTERY_MANAGER_INTERFACE = Native.loadLibrary("Kernel32", AsunaWindowsBatteryManager.class);
                 AsunaWindowsBatteryManager.SYSTEM_POWER_STATUS batteryStatus = new AsunaWindowsBatteryManager.SYSTEM_POWER_STATUS();
                 BATTERY_MANAGER_INTERFACE.GetSystemPowerStatus(batteryStatus);
                 logMsg(true, batteryStatus.getBatteryLifePercent());

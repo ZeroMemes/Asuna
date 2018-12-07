@@ -187,7 +187,7 @@ public class AsunaDataManager {
         threadLock.lock();
         logWarn(true, "Thread locking engaged!");
         try {
-            File f = new File("AsunaGui.yml");
+            File f = new File("AsunaLiteGui.yml");
             if (!f.exists()) {
                 AsunaMod.logErr(true, "Data file doesn't exist smh");
                 f.createNewFile();
@@ -206,7 +206,7 @@ public class AsunaDataManager {
         threadLock.lock();
         logWarn(true, "Thread locking engaged!");
         try {
-            File f = new File("AsunaGui.yml");
+            File f = new File("AsunaLiteGui.yml");
             if (!f.exists()) {
                 AsunaMod.logErr(true, "Data file doesn't exist smh");
                 f.createNewFile();
