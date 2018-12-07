@@ -55,6 +55,6 @@ public class RenderableWatermark extends RenderableObject {
     }
 
     private String getAsunaName() {
-        return "\247bAsuna \2477Lite";
+        return "\247bAsuna \247fLite";
     }
 }
