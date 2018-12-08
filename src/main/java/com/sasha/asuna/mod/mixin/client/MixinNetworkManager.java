@@ -47,29 +47,13 @@ public abstract class MixinNetworkManager {
             info.cancel();
         }
     }
-/*
-    @Redirect(
-            method = "sendPacket(Lnet/minecraft/network/Packet;)V",
-            at = @At(
-                    value = "INVOKE",
-                    target = "net/minecraft/network/NetworkManager.dispatchPacket(Lnet/minecraft/network/Packet;[Lio/netty/util/concurrent/GenericFutureListener;)V"
-            )
-    )
-    private void onDispatchPacket(NetworkManager networkManager, Packet<?> packet, GenericFutureListener<? extends Future<? super Void>>[] futureListeners) {
-        ClientPacketSendEvent event = new ClientPacketSendEvent(packet);
-        AsunaMod.EVENT_MANAGER.invokeEvent(event);
-        if (event.isCancelled()) {
-            return;
-        }
-        this.dispatchPacket(event.getSendPacket(), futureListeners);
-    }
-*/
+
     @Inject(
             method = "channelRead0",
-            at = @At(
-                    value = "HEAD"
-            ),
-            cancellable = true
+                    at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/network/Packet;processPacket(Lnet/minecraft/network/INetHandler;)V"
+            )
     )
     private void channelRead0(ChannelHandlerContext p_channelRead0_1_, Packet<?> packet, CallbackInfo info) {
         ClientPacketRecieveEvent event = new ClientPacketRecieveEvent(packet);
