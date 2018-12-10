@@ -80,8 +80,8 @@ import static com.sasha.asuna.mod.misc.Manager.Renderable.renderableRegistry;
 public class AsunaMod implements SimpleListener {
 
     public static final String MODID = "asunaforge";
-    public static final String NAME = "Asuna Lite";
-    public static final String JAP_NAME = "\u30A2\u30B9\u30CA";
+    public static final String NAME = "Kirito";
+    public static final String JAP_NAME = "\u30AD\u30EA\u30C8";
     public static final String VERSION = "2.0.1L";
     public static SimpleEventManager EVENT_MANAGER = new SimpleEventManager();
     @Deprecated public static AsunaDataManager DATA_MANAGER = new AsunaDataManager();
@@ -110,7 +110,7 @@ public class AsunaMod implements SimpleListener {
     public static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
     public static AsunaHUD asunaHUD;
     public static Minecraft minecraft = Minecraft.getMinecraft();
-    private static Logger logger = LogManager.getLogger("Asuna Lite " + VERSION);
+    private static Logger logger = LogManager.getLogger("Asuna Lite \"Kirito\" " + VERSION);
 
     /**
      * Buttons
@@ -287,16 +287,16 @@ public class AsunaMod implements SimpleListener {
         Manager.Feature.registerFeature(new NightVisionFeature());
         Manager.Feature.registerFeature(new NoSlowFeature());
         Manager.Feature.registerFeature(new AnnouncerFeature());
-        Manager.Feature.registerFeature(new AFKFishFeature());
+        //Manager.Feature.registerFeature(new AFKFishFeature());
         Manager.Feature.registerFeature(new AutoRespawnFeature());
         Manager.Feature.registerFeature(new ChunkTraceFeature());
         Manager.Feature.registerFeature(new FreecamFeature());
         Manager.Feature.registerFeature(new CrystalAuraFeature());
         Manager.Feature.registerFeature(new CrystalLogoutFeature());
         Manager.Feature.registerFeature(new JesusFeature());
-        Manager.Feature.registerFeature(new ClientIgnoreFeature());
+        //Manager.Feature.registerFeature(new ClientIgnoreFeature());
         Manager.Feature.registerFeature(new AutoPlaceFeature());
-        Manager.Feature.registerFeature(new AutoIgnoreFeature());
+        //Manager.Feature.registerFeature(new AutoIgnoreFeature());
         Manager.Feature.registerFeature(new AutoSprintFeature());
         Manager.Feature.registerFeature(new CameraClipFeature());
         Manager.Feature.registerFeature(new ElytraBoostFeature());
@@ -307,7 +307,7 @@ public class AsunaMod implements SimpleListener {
         Manager.Feature.registerFeature(new ExtendedTablistFeature());
         Manager.Feature.registerFeature(new AntiAFKFeature());
         Manager.Feature.registerFeature(new YawLockFeature());
-        Manager.Feature.registerFeature(new QueueTimeFeature());
+        //Manager.Feature.registerFeature(new QueueTimeFeature());
         Manager.Feature.registerFeature(new NoPushFeature());
         Manager.Feature.registerFeature(new PacketFlyFeature());
         Manager.Feature.registerFeature(new PigControlFeature());
@@ -319,7 +319,7 @@ public class AsunaMod implements SimpleListener {
         Manager.Feature.registerFeature(new AntiFireOverlayFeature());
         Manager.Feature.registerFeature(new MinecraftMusicFeature());
         Manager.Feature.registerFeature(new BlinkFeature()); // No clue if this is what blink is suppposed to do... i dont pvp...
-        Manager.Feature.registerFeature(new JoinLeaveMessagesFeature());
+        //Manager.Feature.registerFeature(new JoinLeaveMessagesFeature());
         Manager.Feature.registerFeature(new CraftInventoryFeature());
         Manager.Feature.registerFeature(new KnockbackSuppressFeature());
         Manager.Feature.registerFeature(new EquipmentDamageRenderableFeature());
@@ -330,7 +330,7 @@ public class AsunaMod implements SimpleListener {
         Manager.Feature.registerFeature(new AutoWalkFeature());
         Manager.Feature.registerFeature(new BoatFlyFeature());
         Manager.Feature.registerFeature(new AutoReconnectFeature());
-        Manager.Feature.registerFeature(new NameProtectFeature());
+        //Manager.Feature.registerFeature(new NameProtectFeature());
         //Manager.Feature.registerFeature(new SafewalkFeature());
         Manager.Feature.registerFeature(new PortalGodModeFeature());
         Manager.Feature.registerFeature(new AutoEatFeature());
@@ -364,15 +364,15 @@ public class AsunaMod implements SimpleListener {
         COMMAND_PROCESSOR.register(BindCommand.class);
         COMMAND_PROCESSOR.register(XrayCommand.class);
         COMMAND_PROCESSOR.register(LagCommand.class);
-        COMMAND_PROCESSOR.register(IgnoreCommand.class);
-        COMMAND_PROCESSOR.register(IgnorelistCommand.class);
+//        COMMAND_PROCESSOR.register(IgnoreCommand.class);
+//        COMMAND_PROCESSOR.register(IgnorelistCommand.class);
         COMMAND_PROCESSOR.register(YawCommand.class);
         COMMAND_PROCESSOR.register(FriendCommand.class);
         COMMAND_PROCESSOR.register(FriendlistCommand.class);
         COMMAND_PROCESSOR.register(WaypointCommand.class);
         COMMAND_PROCESSOR.register(EntitySpeedCommand.class);
-        COMMAND_PROCESSOR.register(FilterCommand.class);
-        COMMAND_PROCESSOR.register(FilterlistCommand.class);
+//        COMMAND_PROCESSOR.register(FilterCommand.class);
+//        COMMAND_PROCESSOR.register(FilterlistCommand.class);
         COMMAND_PROCESSOR.register(UpdateCommand.class);
         COMMAND_PROCESSOR.register(PluginsCommand.class);
         COMMAND_PROCESSOR.register(AutoReconnectCommand.class);

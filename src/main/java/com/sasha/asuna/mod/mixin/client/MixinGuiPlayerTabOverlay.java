@@ -19,9 +19,7 @@
 package com.sasha.asuna.mod.mixin.client;
 
 import com.sasha.asuna.mod.AsunaMod;
-import com.sasha.asuna.mod.feature.impl.ClientIgnoreFeature;
 import com.sasha.asuna.mod.feature.impl.ExtendedTablistFeature;
-import com.sasha.asuna.mod.feature.impl.NameProtectFeature;
 import com.sasha.asuna.mod.misc.Manager;
 import net.minecraft.client.gui.GuiPlayerTabOverlay;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -51,20 +49,7 @@ public abstract class MixinGuiPlayerTabOverlay {
     )
     private void postNetworkInfoSort(int width, Scoreboard scoreboard, ScoreObjective objective, CallbackInfo ci, NetHandlerPlayClient netHandlerPlayClient, List<NetworkPlayerInfo> list) {
         this.asuna$LastPlayerInfoList = list;
-
-        if (Manager.Feature.isFeatureEnabled(NameProtectFeature.class)) {
-            for (NetworkPlayerInfo networkPlayerInfo : list) {
-                if (networkPlayerInfo.getGameProfile().getName().equalsIgnoreCase(AsunaMod.minecraft.player.getName())) {
-                    list.remove(networkPlayerInfo);
-                    break;
-                }
-            }
-        }
         for (NetworkPlayerInfo networkPlayerInfo : list) {
-            if (ClientIgnoreFeature.ignorelist.contains(networkPlayerInfo.getGameProfile().getName())) {
-                networkPlayerInfo.setDisplayName(new TextComponentString("\2478" + networkPlayerInfo.getGameProfile().getName()));
-                continue;
-            }
             if (AsunaMod.FRIEND_MANAGER.getFriendListString().contains(networkPlayerInfo.getGameProfile().getName())) {
                 networkPlayerInfo.setDisplayName(new TextComponentString("\247b" + networkPlayerInfo.getGameProfile().getName()));
             }

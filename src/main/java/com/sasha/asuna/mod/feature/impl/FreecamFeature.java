@@ -86,16 +86,6 @@ public class FreecamFeature extends AbstractAsunaTogglableFeature implements Sim
             e.getEntity().resetPositionToBB();
         }
     }
-
-    @SimpleEventHandler
-    public void onPacketRx(ClientPacketRecieveEvent e) {
-        if (this.isEnabled()) {
-            if (e.getRecievedPacket() instanceof CPacketPlayer) {
-                this.toggleState();
-            }
-        }
-    }
-
     @SimpleEventHandler
     public void onPacketTx(ClientPacketSendEvent e) {
         if (this.isEnabled()) {

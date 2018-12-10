@@ -62,22 +62,5 @@ public class KnockbackSuppressFeature extends AbstractAsunaTogglableFeature
         e.setMotionY(e.getMotionY() / 3);
         e.setMotionZ(e.getMotionZ() / 3);
     }
-    @SimpleEventHandler
-    public void onPlayerPacketKnockBack(ClientPacketRecieveEvent e) {
-        if (!this.isEnabled()) return;
-        if (e.getRecievedPacket() instanceof SPacketExplosion) {
-            SPacketExplosion explosion = e.getRecievedPacket();
-            PlayerKnockbackEvent event = new PlayerKnockbackEvent(explosion.getMotionX(),
-                    explosion.getMotionY(),
-                    explosion.getMotionZ());
-            AsunaMod.EVENT_MANAGER.invokeEvent(event);
-            if (event.isCancelled()) {
-                e.setCancelled(true);
-                return;
-            }
-            explosion.motionX = (float) event.getMotionX();
-            explosion.motionY = (float) event.getMotionY();
-            explosion.motionZ = (float) event.getMotionZ();
-        }
-    }
+
 }

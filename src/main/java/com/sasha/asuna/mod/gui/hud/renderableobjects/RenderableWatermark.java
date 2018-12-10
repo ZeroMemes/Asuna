@@ -30,7 +30,6 @@ public class RenderableWatermark extends RenderableObject {
     public RenderableWatermark() {
         super("Watermark", ScreenCornerPos.LEFTTOP,
                 Manager.Feature.findFeature(WatermarkRenderableFeature.class));
-
     }
 
     @Override
@@ -55,6 +54,6 @@ public class RenderableWatermark extends RenderableObject {
     }
 
     private String getAsunaName() {
-        return "\247bAsuna \247fLite";
+        return "\247bKirito";
     }
 }

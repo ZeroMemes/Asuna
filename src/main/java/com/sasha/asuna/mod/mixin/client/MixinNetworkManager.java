@@ -44,22 +44,4 @@ public abstract class MixinNetworkManager {
             info.cancel();
         }
     }
-
-    @Inject(
-            method = "channelRead0",
-            slice = @Slice(
-                    from = @At("HEAD"),
-                    to = @At(value = "INVOKE", target = "Lnet/minecraft/network/Packet;processPacket(Lnet/minecraft/network/INetHandler;)V")
-            ),
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/network/Packet;processPacket(Lnet/minecraft/network/INetHandler;)V"
-            ),
-            cancellable = true
-    )
-    private void channelRead0(ChannelHandlerContext context, Packet<?> packet, CallbackInfo info) {
-        ClientPacketRecieveEvent event = new ClientPacketRecieveEvent(packet);
-        AsunaMod.EVENT_MANAGER.invokeEvent(event);
-       if (event.isCancelled()) info.cancel();
-    }
 }
