@@ -18,8 +18,6 @@
 
 package com.sasha.asuna.mod.feature.impl;
 
-import com.sasha.asuna.mod.AsunaMod;
-import com.sasha.asuna.mod.events.client.ClientPacketRecieveEvent;
 import com.sasha.asuna.mod.events.playerclient.PlayerKnockbackEvent;
 import com.sasha.asuna.mod.feature.AbstractAsunaTogglableFeature;
 import com.sasha.asuna.mod.feature.AsunaCategory;
@@ -29,7 +27,6 @@ import com.sasha.asuna.mod.feature.option.AsunaFeatureOption;
 import com.sasha.asuna.mod.feature.option.AsunaFeatureOptionBehaviour;
 import com.sasha.eventsys.SimpleEventHandler;
 import com.sasha.eventsys.SimpleListener;
-import net.minecraft.network.play.server.SPacketExplosion;
 
 
 /**

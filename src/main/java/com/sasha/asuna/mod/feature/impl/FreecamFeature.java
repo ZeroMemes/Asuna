@@ -19,7 +19,6 @@
 package com.sasha.asuna.mod.feature.impl;
 
 import com.sasha.asuna.mod.AsunaMod;
-import com.sasha.asuna.mod.events.client.ClientPacketRecieveEvent;
 import com.sasha.asuna.mod.events.client.ClientPacketSendEvent;
 import com.sasha.asuna.mod.events.client.ClientPushOutOfBlocksEvent;
 import com.sasha.asuna.mod.events.client.EntityMoveEvent;
