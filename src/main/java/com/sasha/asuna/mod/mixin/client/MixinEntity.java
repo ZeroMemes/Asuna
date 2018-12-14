@@ -21,14 +21,12 @@ package com.sasha.asuna.mod.mixin.client;
 import com.sasha.asuna.mod.AsunaMod;
 import com.sasha.asuna.mod.events.client.ClientEntityCollideEvent;
 import com.sasha.asuna.mod.events.client.ClientPushOutOfBlocksEvent;
-import com.sasha.asuna.mod.events.client.EntityMoveEvent;
 import com.sasha.asuna.mod.events.playerclient.PlayerKnockbackEvent;
 import com.sasha.asuna.mod.feature.impl.FreecamFeature;
 import com.sasha.asuna.mod.misc.Manager;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.MoverType;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -49,15 +47,15 @@ public abstract class MixinEntity {
     @Shadow
     public abstract String getName();
 
-    @Inject(method = "move", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/profiler/Profiler;startSection(Ljava/lang/String;)V"), cancellable = true)
     public void move(MoverType type, double x, double y, double z, CallbackInfo info) {
-        EntityMoveEvent event = new EntityMoveEvent((Entity)(Object)this, this.world, this.entityId, type, x, y, z);
+        EntityMoveEvent event = new EntityMoveEvent((Entity) (Object) this, this.world, this.entityId, type, x, y, z);
         AsunaMod.EVENT_MANAGER.invokeEvent(event);
         if (event.isCancelled()) info.cancel();
         x = event.getX();
         y = event.getY();
         z = event.getZ();
-    }
+    }*/
 
     @Inject(method = "isInsideOfMaterial", at = @At("HEAD"), cancellable = true)
     public void isInsideOfMaterial(Material materialIn, CallbackInfoReturnable<Boolean> info) {
@@ -92,7 +90,7 @@ public abstract class MixinEntity {
             cancellable = true
     )
     private void preSetVelocity(double x, double y, double z, CallbackInfo ci) {
-        if ((Entity)(Object) this instanceof EntityPlayerSP) {
+        if ((Entity) (Object) this instanceof EntityPlayerSP) {
             PlayerKnockbackEvent event = new PlayerKnockbackEvent(x, y, z);
             AsunaMod.EVENT_MANAGER.invokeEvent(event);
             if (event.isCancelled()) {

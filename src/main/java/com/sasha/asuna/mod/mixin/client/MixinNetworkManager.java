@@ -19,15 +19,12 @@
 package com.sasha.asuna.mod.mixin.client;
 
 import com.sasha.asuna.mod.AsunaMod;
-import com.sasha.asuna.mod.events.client.ClientPacketRecieveEvent;
 import com.sasha.asuna.mod.events.client.ClientPacketSendEvent;
-import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
