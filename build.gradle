@@ -82,7 +82,7 @@ dependencies {
     compile 'club.minnced:discord-rpc-release:v3.3.0'
     compile 'com.github.EmotionalLove:SimpleSettingSystem:e2aaa43f25'
     compile 'com.github.cabaletta:baritone:v1.0.0-hotfix-4'
-    compile 'cabaletta:baritone-api:1.0.0-hotfix-4'
+    compile 'cabaletta:baritone-api:1.0.0'
     compile 'net.jodah:typetools:0.5.0'
     compile 'org.yaml:snakeyaml:1.19'
 }
@@ -157,7 +157,7 @@ shadowJar {
         include(dependency('club.minnced:java-discord-rpc:2.0.1'))
         include(dependency('club.minnced:discord-rpc-release:v3.3.0'))
         include(dependency('com.google.guava:guava:27.0-jre'))
-        include(dependency(group: 'cabaletta', name: 'baritone-api', version: '1.0.0-hotfix-4'))
+        include(dependency(group: 'cabaletta', name: 'baritone-api', version: '1.0.0'))
     }
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
