@@ -82,7 +82,7 @@ public class AsunaMod implements SimpleListener {
     public static final String MODID = "asunaforge";
     public static final String NAME = "Kirito";
     public static final String JAP_NAME = "\u30AD\u30EA\u30C8";
-    public static final String VERSION = "2.0.1L";
+    public static final String VERSION = "2.0.2L";
     public static SimpleEventManager EVENT_MANAGER = new SimpleEventManager();
     @Deprecated public static AsunaDataManager DATA_MANAGER = new AsunaDataManager();
     public static SettingHandler SETTING_HANDLER = new SettingHandler("AsunaLiteSettingData");
