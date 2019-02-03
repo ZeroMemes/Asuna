@@ -32,13 +32,13 @@ If you have any other questions, you can ask for help in our discord server
 
 Asuna would not be possible without help...
 
+[wine](https://github.com/wine) - For making everything
+
 [086](https://github.com/zeroeightysix/) - taught me how to use mixin
 
 [leijurv and Brady](https://github.com/cabaletta/baritone) - For the baritone pathfinder
 
 [0x22](https://github.com/0-x-2-2) - For forcing me to fix certain things in my code :kissing_smiling_eyes:
-
-[wine](https://github.com/wine) - For fixing my lazy coding
 
 ### Workspace setup tutorial
 
